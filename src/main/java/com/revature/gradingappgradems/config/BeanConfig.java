@@ -1,0 +1,10 @@
+package com.revature.gradingappgradems.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class BeanConfig {
+	
+	
+
+}
