@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -83,12 +84,12 @@ public class ScoreRangeController {
 
 
 	
-	@GetMapping("/getgrade")
+	@GetMapping("/{avg}")
 	@ApiOperation(value = "ScoreRange API")
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully updated", response = String.class),
 			@ApiResponse(code = 400, message = "Invalid Credentials", response = Message.class) })
 
-	public ResponseEntity<?> getGrade(@RequestParam("avg") float avg) {
+	public ResponseEntity<?> getGrade(@PathVariable("avg") float avg) {
 		
 		String errorMessage = null; 
 		String grade = null;
