@@ -99,7 +99,7 @@ public class ScoreRangeController {
 
 			grade = scorerangeService.findbyavg(avg);
 			message = new Message(grade);
-			return new ResponseEntity<>(message, HttpStatus.OK);
+			return new ResponseEntity<>(grade, HttpStatus.OK);
 		} catch (Exception e) {
 			errorMessage = e.getMessage();
 			message = new Message(errorMessage);
