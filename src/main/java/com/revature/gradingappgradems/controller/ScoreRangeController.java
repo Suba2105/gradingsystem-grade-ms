@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.gradingappgradems.dto.Message;
+import com.revature.gradingappgradems.exception.ServiceException;
 import com.revature.gradingappgradems.model.ScoreRange;
 import com.revature.gradingappgradems.service.ScoreRangeService;
 
@@ -106,9 +107,24 @@ public class ScoreRangeController {
 			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
 
 		}
-		
-		
+	}
+	
+	@GetMapping("/viewscorerange")
+	@ApiOperation(value = "viewScoreRange API")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Success", response = ScoreRange.class),
+			@ApiResponse(code = 400, message = "Invalid Credentials", response = Message.class) })
+	public ResponseEntity<?> viewscorerange() throws ServiceException  {
 
+		List<ScoreRange> list = null;
+		String errorMessage = null;
+		list = scorerangeService.findAllRange();
+		Message message = null;
+		if (list != null) {
+			return new ResponseEntity<>(list, HttpStatus.OK);
+		} else {
+			message = new Message(errorMessage);
+			return new ResponseEntity<>(message, HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }
