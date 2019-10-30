@@ -2,11 +2,11 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://gradeapp-prod.cwcgqfx9ijuw.ap-south-1.rds.amazonaws.com:3306/gradeapp_grade_db
-    username: suba
-    password: suba    
+    username: prod_user
+    password: prod_user    
   flyway:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://gradeapp-prod.cwcgqfx9ijuw.ap-south-1.rds.amazonaws.com:3306/gradeapp_grade_db
-    username: suba
-    password: suba
+    username: prod_user
+    password: prod_user
     
